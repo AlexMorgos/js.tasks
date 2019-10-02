@@ -1,10 +1,16 @@
-function whatNumberIsIt(n) {
-  switch (true) {
-    case (n == Number.MAX_VALUE): return "Input number is Number.MAX_VALUE";
-    case (n == Number.POSITIVE_INFINITY): return "Input number is Number.POSITIVE_INFINITY";
-    case (n == Number.MIN_VALUE): return "Input number is Number.MIN_VALUE";
-    case (n == Number.NEGATIVE_INFINITY): return "Input number is Number.NEGATIVE_INFINITY";
-    case (isNaN(n)): return "Input number is Number.NaN";
-    default: return "Input number is " + n;
+function whatNumberIsIt(number) {
+  const baseStr = 'Input number is ';
+  const numberTypes = {
+    [Number.MAX_VALUE]: 'Number.MAX_VALUE',
+    [Number.POSITIVE_INFINITY]: 'Number.POSITIVE_INFINITY',
+    [Number.MIN_VALUE]: 'Number.MIN_VALUE',
+    [Number.NEGATIVE_INFINITY]: 'Number.NEGATIVE_INFINITY',
   }
+  if (numberTypes[number]) {
+    return baseStr + numberTypes[number];
+  }
+  if (isNaN(n)) {
+    return baseStr + 'Number.NaN';
+  }
+  return baseStr + number;
 }
